@@ -21,7 +21,7 @@
     border-color: #1DB954;
 }
 
-.form__input::after{
+.form__input{
     border-color: #BD7AB3;
 }
 
@@ -121,5 +121,10 @@ input[type="text"]{
 
     ::placeholder{
         visibility: hidden;
+    }
+    .form__image{
+        max-width: 38rem;
+        height: auto;
+        border-radius: 25px;
     }
   }

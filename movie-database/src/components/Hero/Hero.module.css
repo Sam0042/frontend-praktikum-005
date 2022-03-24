@@ -78,4 +78,21 @@
   .hero__right {
     flex-basis: 60%;
   }
+  .hero__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__image {
+    max-width: 40rem;
+    height: auto;
+    border-radius: 25px;
+  }
+
+  .container{
+    margin-top: 7rem;
+  }
 }

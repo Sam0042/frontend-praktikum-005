@@ -1,5 +1,5 @@
-
 import styles from "./AddMovieForm.module.css";
+import gambar01 from "./Assets/gambar-1.jpg";
 
 function AddMoviesForm() {
     return(
@@ -8,7 +8,7 @@ function AddMoviesForm() {
                 <div className={styles.form__left}>
                     <img
                         className={styles.form__image}
-                        src="https://picsum.photos/536/354"
+                        src={gambar01}
                         alt="placeholder"
                     />
                 </div>

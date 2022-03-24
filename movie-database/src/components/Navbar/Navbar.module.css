@@ -52,9 +52,14 @@
 }
 
 /* Large Screen */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   /* 
    * Nothing TODO HERE.
    * We haven't styling Navbar.
    */
+   .container{
+     position: fixed;
+     width: 100%;
+     top: 0;
+   }
 }

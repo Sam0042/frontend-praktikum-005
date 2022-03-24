@@ -1,4 +1,6 @@
 import styles from "./Hero.module.css";
+import gambar01 from "./Assets/gambar-1.jpg";
+
 
 function Hero() {
   return (
@@ -19,7 +21,7 @@ function Hero() {
         <div className="hero__right">
           <img
             className={styles.hero__image}
-            src="https://picsum.photos/536/354"
+            src={gambar01}
             alt="placeholder"
           />
         </div>

@@ -4,6 +4,7 @@
  */
 import styles from "./Footer.module.css";
 
+
 function Footer() {
   /**
    * Menggunakan styles yang sudah diimport.

@@ -13,6 +13,7 @@ function Main() {
   return (
     <main>
       <Hero />
+      <br />
       <Movies />
     </main>
   );
