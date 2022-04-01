@@ -49,15 +49,38 @@ input[type="text"]{
     background-color: #BD7AB3;
 }
 .form__title {
-  color: #1DB954;
-  margin-bottom: 1rem;
-  font-size: 2.44rem;
+    color: #1DB954;
+    margin-bottom: 1rem;
+    font-size: 2.44rem;
 }
 
 .form__label {
-  color: #64748b;
-  margin-bottom: 1rem;
-  visibility: hidden;
+    color: #64748b;
+    margin-bottom: 1rem;
+    visibility: hidden;
+}
+
+
+.form__poster{
+    width: 100%;
+    padding: 20px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #1DB954;
+}
+
+.form__poster{
+    border-color: #BD7AB3;
+}
+
+.form__genre{
+    width: 50%;
+    padding: 20px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #1DB954;
+    border-color: #BD7AB3;
+    margin-top: 2%;
 }
 
 .blu {
@@ -76,7 +99,7 @@ input[type="text"]{
     .form__left{
         flex-basis: 60%;
     }
-    
+
     .container {
     max-width: 1200px;
     margin: 3rem auto;
@@ -92,6 +115,7 @@ input[type="text"]{
 
     .form__right {
     flex-basis: 40%;
+    padding-left: 9%;
     }
 
     /* .form__title{
@@ -99,6 +123,20 @@ input[type="text"]{
     } */
     .form__input{
         width: 250px;
+        padding: 0.5rem 2rem;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .form__poster{
+        width: 125px;
+        padding: 0.5rem 2rem;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .form__genre{
+        width: 125px;
         padding: 0.5rem 2rem;
         font-size: 15px;
         border-radius: 10px;
@@ -113,6 +151,7 @@ input[type="text"]{
         padding: 0.8rem 2rem;
         font-size: 15px;
         border-radius: 10px;
+        margin-top: -1rem;
     }
 
     .form__label{
@@ -126,5 +165,9 @@ input[type="text"]{
         max-width: 38rem;
         height: auto;
         border-radius: 25px;
+    }
+
+    .form__group{
+        margin-top: 1rem;
     }
   }

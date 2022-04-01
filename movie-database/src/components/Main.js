@@ -1,10 +1,13 @@
+import { useState } from "react";
 import Hello from "./Hello";
+import data from "./utils/constants/data";
 
 /**
  * Membuat component Main.
  * Component Main menampung konten utama.
  */
 function Main() {
+
   return (
     <main>
       {/**

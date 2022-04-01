@@ -1,18 +1,16 @@
 import styles from "./Movies.module.css";
 import Movie from "../Movie/Movie";
-import data from "../utils/constants/data";
-import { useState } from "react";
 import { nanoid } from "nanoid";
 
-function Movies() {
-
-  const [movies,setMovies]=useState(data);
+function Movies(props) {
+const {movies,setMovies} = props;
 
   function handleClick(){
     const movie={
       id: nanoid(),
       title: 'Arcane',
       year: '2021',
+      genre: 'Animation',
       poster: 'https://image.tmdb.org/t/p/w185/mL3QgH8T4F5tQ9cVDVY5J7glsb5.jpg',
     }
 

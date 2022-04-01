@@ -1,5 +1,4 @@
 import styles from './Movie.module.css';
-import gambar01 from "./Assets/gambar-1.jpg";
 
 function Movie(props){
     console.log(props.movie);
@@ -14,6 +13,7 @@ function Movie(props){
               alt=""
             />
             <h3 className={styles.movie__title}>{movie.title}</h3>
+            <p className={styles.movie__genre}>{movie.genre}</p>
             <p className={styles.movie__date}>{movie.year}</p>
         </div>
     )

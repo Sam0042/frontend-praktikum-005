@@ -37,6 +37,10 @@
     margin-bottom: 2rem;
   }
 
+  .movie__genre{
+    color: #BD7AB3 ;
+  }
+
   /* Medium Screen */
 @media (min-width: 768px) {
     .movie {
