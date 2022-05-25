@@ -25,6 +25,11 @@ const StyledNavbar = styled.div`
    li{
      margin-bottom: 1rem;
     }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
  
    @media screen and (min-width: 768px){
       position: fixed;
@@ -48,7 +53,7 @@ const StyledNavbar = styled.div`
       li{
          margin: 0 1rem;
       }
- 
+      
    }
  `;
  
