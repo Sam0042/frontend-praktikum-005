@@ -1,8 +1,10 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import Alert from "../Alert/Alert";
+import Button from "../ui/Button";
 import styles from "./AddMovieForm.module.css";
 import gambar01 from "./Assets/gambar-1.jpg";
+
 
 function AddMoviesForm(props) {
     const {movies,setMovies} = props;
@@ -70,6 +72,111 @@ function AddMoviesForm(props) {
             setIsGenreError(false);
         }; 
     }
+    // const [formData,setFormData]= useState({
+    //     title: '',
+    //     date: '',
+    //     poster: '',
+    //     genre: '',
+    // })
+
+    // const [isError,setIsError]= useState({
+    //     isTitleError: false,
+    //     isDateError: false,
+    //     isPosterError: false,
+    //     isGenreError: false,
+    // }) 
+    
+
+
+    // function handleChange(e){
+    //     const {name,value}= e.target;
+
+    //     setFormData({
+    //         ...formData,
+    //         [name]:value,
+    //     })
+
+    //     setIsError({
+            
+    //     })
+    // }
+
+
+    // function handleError(e){
+    //     const {setIsTittleError,setIsDateError,setIsPosterError,setIsGenreError}= setIsError;
+       
+    //     setIsError({
+    //         ...isError,
+    //         setIsTittleError,
+    //     })
+    // }
+
+    // handleError(setIsError)
+
+     
+    // const [isTitleError,setIsTittleError] = useState(false);
+    // const [isDateError,setIsDateError] = useState(false);
+    // const [isPosterError,setIsPosterError] = useState(false);
+    // const [isGenreError,setIsGenreError] = useState(false);
+
+
+   
+    // const {isTitleError,isDateError,isPosterError,isGenreError}= isError;
+    // const{setIsTittleError,setIsDateError,setIsPosterError,setIsGenreError}= setIsError;
+
+    // const { title,date,poster,genre}= formData;
+
+  
+    function validate(){
+        if(title==''){
+            setIsTittleError(true); 
+            return false;
+        }
+
+        else if(date==''){
+            setIsDateError(true);
+            setIsTittleError(false);
+            return false;
+        }
+
+        else if(poster==''){
+            setIsPosterError(true);
+            setIsDateError(false);
+            return false;
+        }
+
+        else if(genre==''){
+            setIsGenreError(true);
+            setIsPosterError(false);
+            return false;
+        }
+
+        else{
+            setIsTittleError(false);
+            setIsDateError(false);
+            setIsPosterError(false);
+            setIsGenreError(false);
+            return true;
+        }
+    }
+
+    function AddMovie(){
+        const movie = {
+            id: nanoid(),
+            title: title,
+            year: date,
+            type: 'movie',
+            poster: poster,
+            genre: genre
+        }
+        setMovies([...movies,movie]);
+    }
+
+    function handleSubmit(e){
+        e.preventDefault();
+
+        validate() && AddMovie();
+    }
 
     return(
         <div className={styles.container}>
@@ -88,7 +195,7 @@ function AddMoviesForm(props) {
                     <form action="" onSubmit={handleSubmit}>
                         <div className={styles.form__group}>
                             <label className={styles.form__label}>Title</label><br />
-                            <input type="text" className={styles.form__input} placeholder='Title' value={title} onChange={handleTitle}/>
+                            <input type="text" className={styles.form__input} placeholder='Title' value={title} onChange={handleTitle} name='title'/>
                             {
                                 isTitleError && <Alert>Title wajib diisi</Alert>
                             }
@@ -96,7 +203,7 @@ function AddMoviesForm(props) {
     
                         <div className={styles.form__group}>
                             <label  className={styles.form__label}>Date</label><br />
-                            <input type="text" className={styles.form__input} placeholder='Year' value={date} onChange={handleDate}/>
+                            <input type="text" className={styles.form__input} placeholder='Year' value={date} onChange={handleDate} name='date'/>
                             {
                                 isDateError && <Alert>Date wajib diisi</Alert>
                             }
@@ -104,12 +211,12 @@ function AddMoviesForm(props) {
 
                         <div className={styles.form__group}>
                             <label className={styles.form__label}>Poster</label><br />
-                            <input type="text" className={styles.form__poster} placeholder='Poster' value={poster} onChange={handlePoster}/>
+                            <input type="text" className={styles.form__poster} placeholder='Poster' value={poster} onChange={handlePoster} name='poster' />
                             {
                                 isPosterError && <Alert>Poster wajib diisi</Alert>
                             }
 
-                            <select className={styles.form__genre} name="" id="" onChange={handleGenre}>
+                            <select className={styles.form__genre} id="" onChange={handleGenre} name='genre' >
                                 <option value="" selected>Genres</option>
                                 <option value="Horror">Horror</option>
                                 <option value="Comedy">Comedy</option>
@@ -133,7 +240,7 @@ function AddMoviesForm(props) {
                         </div>
                         
                         <br />
-                        <input type="submit" className={styles.form__submit} />
+                        <Button variant='secondary' size='lg' full>Add Movie</Button>
                     </form>
                 </div>
             </section>

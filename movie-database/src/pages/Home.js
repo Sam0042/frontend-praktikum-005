@@ -6,35 +6,21 @@ import Navbar from "../components/Navbar/Navbar";
 import AddMoviesForm from "../components/AddMovieForm/AddMovieForm";
 import { useState } from "react";
 import data from '../utils/constants/data.js';
-/**
- * Membuat Component Main.
- * Menampung Hero dan Movies
- */
-function Main() {
 
+
+
+function Home() {
+/**
+ * Lifting state
+ */
+  
   const [movies,setMovies]=useState(data);
 
   return (
-    <main>
+    <>
       <Hero /><br />
       <Movies movies={movies} setMovies={setMovies}/>
       <AddMoviesForm movies={movies} setMovies={setMovies}/>
-    </main>
-  );
-}
-
-/**
- * Membuat Component Home.
- * Menampilkan Halaman Home.
- * Menampung Navbar, Main, dan Footer Component
- */
-function Home() {
-
-  return (
-    <>
-      <Navbar />
-      <Main />
-      <Footer />
     </>
   );
 }

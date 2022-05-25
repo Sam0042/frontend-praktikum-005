@@ -1,32 +1,33 @@
-import styles from "./Hero.module.css";
+import StyledHero from "./Hero.styled";
 import gambar01 from "./Assets/gambar-1.jpg";
-
+import Button from "../ui/Button";
+import Heading from "../ui/Typography/Heading";
+import Paragraph from "../ui/Typography/Paragraph";
 
 function Hero() {
   return (
-    <div className={styles.container}>
-      <section className={styles.hero}>
-        <div className={styles.hero__left}>
-          <h2 className={styles.hero__title}>Spiderman</h2>
-          <h3 className={styles.hero__genre}>
+    <StyledHero>
+      <section>
+        <div className='hero__left'>
+          <Heading variant='secondary' size='xxl'>Spiderman</Heading>
+          <h3>
             Genre: Thriller, Drama, Romance
           </h3>
-          <p className={styles.hero__description}>
+          <Paragraph variant='grey' size='lg'>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
             cum accusamus quisquam earum velit ea nobis maiores exercitationem
             nam temporibus.
-          </p>
-          <button className={styles.hero__button}>Watch</button>
+          </Paragraph>
+          <Button variant='primary' size=''>Watch Movie</Button>
         </div>
         <div className="hero__right">
           <img
-            className={styles.hero__image}
             src={gambar01}
             alt="placeholder"
           />
         </div>
       </section>
-    </div>
+    </StyledHero>
   );
 }
 

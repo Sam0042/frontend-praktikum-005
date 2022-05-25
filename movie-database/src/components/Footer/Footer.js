@@ -3,7 +3,22 @@
  * Disimpan di object styles.
  */
 import styles from "./Footer.module.css";
+import styled from "styled-components";
 
+const StyledFooter= styled.div`
+   background-color: #1DB954;
+   color: #fff;
+   padding: 1rem;
+   text-align: center;
+
+  h2{
+    margin-bottom: 1rem;
+  }
+
+  p{
+    margin-bottom: 1rem;
+  }
+`;
 
 function Footer() {
   /**
@@ -11,12 +26,12 @@ function Footer() {
    * Memanggilnya menggunakan expression.
    */
   return (
-    <div className={styles.container}>
-      <footer className={styles.footer}>
-        <h2 className={styles.footer__title}>Moviequ</h2>
-        <p className={styles.footer__author}>Created by sam0042</p>
+    <StyledFooter>
+      <footer>
+        <h2>Moviequ</h2>
+        <p>Created by sam0042</p>
       </footer>
-    </div>
+    </StyledFooter>
   );
 }
 
