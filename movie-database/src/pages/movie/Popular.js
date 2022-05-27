@@ -8,7 +8,7 @@ function Popular(){
 
     useEffect(async()=>{
         const response= await axios(URL);
-        // console.log(process.env);
+        console.log(response);
     }, []);
 
     return(
