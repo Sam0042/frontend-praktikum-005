@@ -3,6 +3,7 @@ const theme ={
         primary: '#1DB954',
         secondary: '#b5179e',
         grey: '#64748b',
+        red:'#B80012',
     },
     
     size:{

@@ -29,6 +29,22 @@ const StyledHero = styled.div`
     margin-bottom: 1rem;
   }
 
+  a{
+    text-decoration:none;
+  }
+
+  a:hover{
+    background-color: #BD7AB3;
+  }
+
+  p{
+    margin-bottom: 2rem;
+  }
+
+  span{
+    margin-bottom: 1rem;
+  }
+
 
   @media screen and (min-width:768px){
     margin-top: 7rem;
@@ -57,7 +73,10 @@ const StyledHero = styled.div`
     }
 
     .hero__left {
+      margin-top:4rem;
       flex-basis: 40%;
+      //warning
+      margin-right:1.5rem;
     }
 
     .hero__right {

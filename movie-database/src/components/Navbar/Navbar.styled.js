@@ -30,6 +30,10 @@ const StyledNavbar = styled.div`
       text-decoration:none;
       color:white;
     }
+
+    a:hover{
+      color:gray;
+    }
  
    @media screen and (min-width: 768px){
       position: fixed;
