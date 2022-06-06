@@ -20,6 +20,11 @@ const StyledMovie= styled.div`
         color: #64748b;
         margin-bottom: 0.5rem; 
     }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
     
     @media screen and (min-width: 768px){
         flex-basis: 50%;

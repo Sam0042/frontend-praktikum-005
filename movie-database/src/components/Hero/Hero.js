@@ -13,14 +13,13 @@ function Hero() {
   const genres = movie && movie.genres.map((genre) => genre.name).join(', ');
   const trailer = movie && `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`;
 
-  console.log(trailer)
 
   useEffect(getDetailMovie,[]);
 
   async function getTrendingMovies(){
     const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
     const response= await axios(URL);
-    return response.data.results[4];
+    return response.data.results[1];
   }
 
   async function getDetailMovie(){
@@ -28,7 +27,6 @@ function Hero() {
     const id = trendingMovie.id;
     const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
     const response = await axios(URL);
-    console.log(response.data)
 
     setMovie(response.data);
   }
@@ -50,7 +48,7 @@ function Hero() {
             </p>
           </Paragraph>
           <Paragraph variant='secondary' size='md'>
-            <span>
+            <span alt='Rating'>
               {movie.vote_average}
             </span>
           </Paragraph>
