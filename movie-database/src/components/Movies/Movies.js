@@ -1,23 +1,14 @@
 import styles from "./Movies.module.css";
 import Movie from "../Movie/Movie";
-import { nanoid } from "nanoid";
-import Button from "../ui/Button";
+import {useSelector} from 'react-redux';
+import store from "../../store";
 
 function Movies(props) {
-const {movies,setMovies} = props;
+// const {setMovies} = props;
 
-  function handleClick(){
-    const movie={
-      id: nanoid(),
-      title: 'Arcane',
-      year: '2021',
-      genre: 'Animation',
-      poster: 'https://image.tmdb.org/t/p/w185/mL3QgH8T4F5tQ9cVDVY5J7glsb5.jpg',
-    }
+const movies= useSelector((store)=>store.movies.movies);
+console.log(movies)
 
-    setMovies([...movies,movie]);
-
-  }
   return (
     <div className={styles.container}>
       <section className={styles.movies}>
@@ -29,7 +20,6 @@ const {movies,setMovies} = props;
             })
           }
         </div>
-        <Button variant='secondary' size='md' onClick={handleClick} >Add Movie</Button>
       </section>
     </div>
   );

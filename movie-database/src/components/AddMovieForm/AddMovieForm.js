@@ -1,182 +1,95 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Alert from "../Alert/Alert";
 import Button from "../ui/Button";
 import styles from "./AddMovieForm.module.css";
 import gambar01 from "./Assets/gambar-1.jpg";
+import {useDispatch} from 'react-redux';
+import { addMovie } from "../../features/moviesSlice";
 
 
-function AddMoviesForm(props) {
-    const {movies,setMovies} = props;
+function AddMoviesForm() {
 
-    const [title,setTitle] = useState('');
-    const [date,setDate] = useState('');
-    const [poster,setPoster] = useState('');
-    const [genre,setGenre] = useState('');
+    /**menangkap dispatch */
+    const dispatch = useDispatch();
 
-    const [isTitleError,setIsTittleError] = useState(false);
-    const [isDateError,setIsDateError] = useState(false);
-    const [isPosterError,setIsPosterError] = useState(false);
-    const [isGenreError,setIsGenreError] = useState(false);
+    const navigate = useNavigate();
 
-    function handleTitle(e){
-        setTitle(e.target.value);
-    }
-
-    function handleDate(e){
-        setDate(e.target.value);
-    }
-
-    function handlePoster(e){
-        setPoster(e.target.value)
-    }
-
-    function handleGenre(e){
-        setGenre(e.target.value)
-        console.log(genre)
-    }
-
-    function handleSubmit(e){
-        e.preventDefault();
-
-        if(title==''){
-            setIsTittleError(true);
+    const [formData, setFormData] = useState({
+        title: "",
+        date: "",
+        poster: "",
+        type: "",
+      });
+    
+      /**
+       * TODO
+       * - PROBLEM: 1 ERROR 1 STATE.
+       * - TODO: REFACTOR SEMUA ERROR JADI 1 STATE.
+       */
+      const [isTitleError, setIsTitleError] = useState(false);
+      const [isDateError, setIsDateError] = useState(false);
+      const [isPosterError, setIsPosterError] = useState(false);
+      const [isGenreError, setIsGenreError] = useState(false);
+    
+      function handleChange(e) {
+        // Destructing name dan value.
+        const { name, value } = e.target;
+    
+        /**
+         * Mengupdate state berupa object:
+         * - Menggunakan spread operator:
+         * - Update property berdasarkan apapun nilai name.
+         */
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      }
+    
+      function validate() {
+        if (title === "") {
+          setIsTitleError(true);
+          return false;
+        } else if (date === "") {
+          setIsDateError(true);
+          setIsTitleError(false);
+          return false;
+        } else if (poster === "") {
+          setIsPosterError(true);
+          setIsDateError(false);
+          return false;
+        } else {
+          setIsTitleError(false);
+          setIsDateError(false);
+          return true;
         }
-
-        else if(date==''){
-            setIsDateError(true);
-        }
-
-        else if(poster==''){
-            setIsPosterError(true);
-        }
-
-        else if(genre==''){
-            setIsGenreError(true);
-        }
-
-        else{
-            const movie = {
-                id: nanoid(),
-                title: title,
-                year: date,
-                type: 'movie',
-                poster: poster,
-                genre: genre
-            }
-            setMovies([...movies,movie]);
-
-            setIsTittleError(false);
-            setIsDateError(false);
-            setIsPosterError(false);
-            setIsGenreError(false);
-        }; 
-    }
-    // const [formData,setFormData]= useState({
-    //     title: '',
-    //     date: '',
-    //     poster: '',
-    //     genre: '',
-    // })
-
-    // const [isError,setIsError]= useState({
-    //     isTitleError: false,
-    //     isDateError: false,
-    //     isPosterError: false,
-    //     isGenreError: false,
-    // }) 
+      }
     
 
-
-    // function handleChange(e){
-    //     const {name,value}= e.target;
-
-    //     setFormData({
-    //         ...formData,
-    //         [name]:value,
-    //     })
-
-    //     setIsError({
-            
-    //     })
-    // }
-
-
-    // function handleError(e){
-    //     const {setIsTittleError,setIsDateError,setIsPosterError,setIsGenreError}= setIsError;
-       
-    //     setIsError({
-    //         ...isError,
-    //         setIsTittleError,
-    //     })
-    // }
-
-    // handleError(setIsError)
-
-     
-    // const [isTitleError,setIsTittleError] = useState(false);
-    // const [isDateError,setIsDateError] = useState(false);
-    // const [isPosterError,setIsPosterError] = useState(false);
-    // const [isGenreError,setIsGenreError] = useState(false);
-
-
-   
-    // const {isTitleError,isDateError,isPosterError,isGenreError}= isError;
-    // const{setIsTittleError,setIsDateError,setIsPosterError,setIsGenreError}= setIsError;
-
-    // const { title,date,poster,genre}= formData;
-
-  
-    function validate(){
-        if(title==''){
-            setIsTittleError(true); 
-            return false;
-        }
-
-        else if(date==''){
-            setIsDateError(true);
-            setIsTittleError(false);
-            return false;
-        }
-
-        else if(poster==''){
-            setIsPosterError(true);
-            setIsDateError(false);
-            return false;
-        }
-
-        else if(genre==''){
-            setIsGenreError(true);
-            setIsPosterError(false);
-            return false;
-        }
-
-        else{
-            setIsTittleError(false);
-            setIsDateError(false);
-            setIsPosterError(false);
-            setIsGenreError(false);
-            return true;
-        }
-    }
-
-    function AddMovie(){
+    function submitMovie(){
         const movie = {
             id: nanoid(),
             title: title,
             year: date,
             type: 'movie',
             poster: poster,
-            genre: genre
+            genre: genre,
         }
-        setMovies([...movies,movie]);
+        
+        dispatch(addMovie(movie));
+        
+        navigate('/');
     }
 
     function handleSubmit(e){
         e.preventDefault();
 
-        validate() && AddMovie();
+        validate() && submitMovie();
     }
+
+    const { title, date, poster, genre } = formData;
 
     return(
         <div className={styles.container}>
@@ -195,7 +108,7 @@ function AddMoviesForm(props) {
                     <form action="" onSubmit={handleSubmit}>
                         <div className={styles.form__group}>
                             <label className={styles.form__label}>Title</label><br />
-                            <input type="text" className={styles.form__input} placeholder='Title' value={title} onChange={handleTitle} name='title'/>
+                            <input type="text" className={styles.form__input} placeholder='Title' value={title} onChange={handleChange} name='title'/>
                             {
                                 isTitleError && <Alert>Title wajib diisi</Alert>
                             }
@@ -203,7 +116,7 @@ function AddMoviesForm(props) {
     
                         <div className={styles.form__group}>
                             <label  className={styles.form__label}>Date</label><br />
-                            <input type="text" className={styles.form__input} placeholder='Year' value={date} onChange={handleDate} name='date'/>
+                            <input type="text" className={styles.form__input} placeholder='Year' value={date} onChange={handleChange} name='date'/>
                             {
                                 isDateError && <Alert>Date wajib diisi</Alert>
                             }
@@ -211,12 +124,12 @@ function AddMoviesForm(props) {
 
                         <div className={styles.form__group}>
                             <label className={styles.form__label}>Poster</label><br />
-                            <input type="text" className={styles.form__poster} placeholder='Poster' value={poster} onChange={handlePoster} name='poster' />
+                            <input type="text" className={styles.form__poster} placeholder='Poster' value={poster} onChange={handleChange} name='poster' />
                             {
                                 isPosterError && <Alert>Poster wajib diisi</Alert>
                             }
 
-                            <select className={styles.form__genre} id="" onChange={handleGenre} name='genre' >
+                            <select className={styles.form__genre} id="" onChange={handleChange} name='genre' >
                                 <option value="" selected>Genres</option>
                                 <option value="Horror">Horror</option>
                                 <option value="Comedy">Comedy</option>

@@ -12,11 +12,7 @@ import TopRated from "./pages/movie/TopRated";
 import theme from "./utils/constants/theme";
 
 function App() {
-  /**
-   * Menampilkan Halaman Home.
-   * Tag div bisa diganti dengan tag <>.
-   * Tag <> adalah React fragment
-   */
+  
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -24,7 +20,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path="/movie/create" element={<Create/>} />
+            <Route path="/movie/create" element={<Create />} />
             <Route path="/movie/now" element={<NowPlaying/>} />
             <Route path="/movie/popular" element={<Popular/>} />
             <Route path="/movie/top" element={<TopRated/>} />
