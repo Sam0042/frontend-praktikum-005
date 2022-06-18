@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/samweb.github.io/static/css/main.fac7f76a.css",
-    "main.js": "/samweb.github.io/static/js/main.86daf4c3.js",
+    "main.js": "/samweb.github.io/static/js/main.f82b974b.js",
     "static/js/787.d02d9e27.chunk.js": "/samweb.github.io/static/js/787.d02d9e27.chunk.js",
     "static/media/gambar-1.jpg": "/samweb.github.io/static/media/gambar-1.6168285fb585e3871168.jpg",
     "index.html": "/samweb.github.io/index.html",
     "main.fac7f76a.css.map": "/samweb.github.io/static/css/main.fac7f76a.css.map",
-    "main.86daf4c3.js.map": "/samweb.github.io/static/js/main.86daf4c3.js.map",
+    "main.f82b974b.js.map": "/samweb.github.io/static/js/main.f82b974b.js.map",
     "787.d02d9e27.chunk.js.map": "/samweb.github.io/static/js/787.d02d9e27.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fac7f76a.css",
-    "static/js/main.86daf4c3.js"
+    "static/js/main.f82b974b.js"
   ]
 }
