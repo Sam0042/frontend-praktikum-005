@@ -15,16 +15,18 @@ const moviesSlice= createSlice({
             /**menambahkan movie ke movies */
             state.movies.push(action.payload)
         },
-        deleteMovie(){},
+        updateMovies(state,action){
+            state.movies = action.payload
+        },
     }},
 );
 
 /**meng-generate reducers */
 const moviesReducer= moviesSlice.reducer;
 /**meng-generate action */
-const {addMovie,deleteMovie}= moviesSlice.actions;
+const {addMovie,updateMovies}= moviesSlice.actions;
 
 /**export reducer */
 export default moviesReducer;
 /**export action */
-export {addMovie,deleteMovie};
+export {addMovie,updateMovies};

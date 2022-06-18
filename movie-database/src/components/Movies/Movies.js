@@ -1,13 +1,11 @@
 import styles from "./Movies.module.css";
 import Movie from "../Movie/Movie";
 import {useSelector} from 'react-redux';
-import store from "../../store";
 
 function Movies(props) {
 // const {setMovies} = props;
 
 const movies= useSelector((store)=>store.movies.movies);
-console.log(movies)
 
   return (
     <div className={styles.container}>
