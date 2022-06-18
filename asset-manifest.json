@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/samweb.github.io/static/css/main.fac7f76a.css",
-    "main.js": "/samweb.github.io/static/js/main.f82b974b.js",
-    "static/js/787.d02d9e27.chunk.js": "/samweb.github.io/static/js/787.d02d9e27.chunk.js",
-    "static/media/gambar-1.jpg": "/samweb.github.io/static/media/gambar-1.6168285fb585e3871168.jpg",
-    "index.html": "/samweb.github.io/index.html",
-    "main.fac7f76a.css.map": "/samweb.github.io/static/css/main.fac7f76a.css.map",
-    "main.f82b974b.js.map": "/samweb.github.io/static/js/main.f82b974b.js.map",
-    "787.d02d9e27.chunk.js.map": "/samweb.github.io/static/js/787.d02d9e27.chunk.js.map"
+    "main.css": "/frontend-programming-Sam0042/static/css/main.fac7f76a.css",
+    "main.js": "/frontend-programming-Sam0042/static/js/main.dac1370e.js",
+    "static/js/787.d02d9e27.chunk.js": "/frontend-programming-Sam0042/static/js/787.d02d9e27.chunk.js",
+    "static/media/gambar-1.jpg": "/frontend-programming-Sam0042/static/media/gambar-1.6168285fb585e3871168.jpg",
+    "index.html": "/frontend-programming-Sam0042/index.html",
+    "main.fac7f76a.css.map": "/frontend-programming-Sam0042/static/css/main.fac7f76a.css.map",
+    "main.dac1370e.js.map": "/frontend-programming-Sam0042/static/js/main.dac1370e.js.map",
+    "787.d02d9e27.chunk.js.map": "/frontend-programming-Sam0042/static/js/787.d02d9e27.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fac7f76a.css",
-    "static/js/main.f82b974b.js"
+    "static/js/main.dac1370e.js"
   ]
 }
